@@ -4,15 +4,35 @@
 #(Get-Content ./client/src/api/ConvertWebApi.js).replace('var returnType = Object;', "var returnType = 'Blob';") | Set-Content ./client/src/api/ConvertWebApi.js
 
 
-(Get-Content ./client/src/Cloudmersive.APIClient.NETCore.OCR/Cloudmersive.APIClient.NETCore.OCR.csproj).replace('<Authors>Swagger</Authors>', "<Authors>Cloudmersive</Authors>") | Set-Content ./client/src/Cloudmersive.APIClient.NETCore.OCR/Cloudmersive.APIClient.NETCore.OCR.csproj
-(Get-Content ./client/src/Cloudmersive.APIClient.NETCore.OCR/Cloudmersive.APIClient.NETCore.OCR.csproj).replace('<Company>Swagger</Company>', "<Company>Cloudmersive</Company>") | Set-Content ./client/src/Cloudmersive.APIClient.NETCore.OCR/Cloudmersive.APIClient.NETCore.OCR.csproj
-(Get-Content ./client/src/Cloudmersive.APIClient.NETCore.OCR/Cloudmersive.APIClient.NETCore.OCR.csproj).replace('<AssemblyTitle>Swagger Library</AssemblyTitle>', "<AssemblyTitle>Cloudmersive OCR API Client</AssemblyTitle>") | Set-Content ./client/src/Cloudmersive.APIClient.NETCore.OCR/Cloudmersive.APIClient.NETCore.OCR.csproj
-(Get-Content ./client/src/Cloudmersive.APIClient.NETCore.OCR/Cloudmersive.APIClient.NETCore.OCR.csproj).replace('<Description>A library generated from a Swagger doc</Description>', "<Description>The powerful Optical Character Recognition (OCR) APIs let you convert scanned images of pages into recognized text.</Description>") | Set-Content ./client/src/Cloudmersive.APIClient.NETCore.OCR/Cloudmersive.APIClient.NETCore.OCR.csproj
-(Get-Content ./client/src/Cloudmersive.APIClient.NETCore.OCR/Cloudmersive.APIClient.NETCore.OCR.csproj).replace('<TargetFramework>net45</TargetFramework>', "<TargetFramework>netcoreapp2.1</TargetFramework>") | Set-Content ./client/src/Cloudmersive.APIClient.NETCore.OCR/Cloudmersive.APIClient.NETCore.OCR.csproj
 
 
 
 
-#& npm build ./client
-& dotnet build ./client/src/Cloudmersive.APIClient.NETCore.OCR/Cloudmersive.APIClient.NETCore.OCR.csproj -c Release
-& dotnet pack ./client/src/Cloudmersive.APIClient.NETCore.OCR/Cloudmersive.APIClient.NETCore.OCR.csproj -c Release
+
+
+
+$csprojpath = Resolve-Path ./client/src/Cloudmersive.APIClient.NET.OCR/Cloudmersive.APIClient.NET.OCR.csproj
+$csprojtestpath = Resolve-Path ./client/src/Cloudmersive.APIClient.NET.OCR.Test/Cloudmersive.APIClient.NET.OCR.Test.csproj
+$nuspecpath = Resolve-Path ./client/src/Cloudmersive.APIClient.NET.OCR/Cloudmersive.APIClient.NET.OCR.nuspec
+$slnpath = Resolve-Path ./client/Cloudmersive.APIClient.NET.OCR.sln
+
+
+(Get-Content $nuspecpath).replace('<title>Swagger Library</title>', "<title>Cloudmersive OCR API Client</title>") | Set-Content $nuspecpath
+(Get-Content $nuspecpath).replace('<authors>$author$</authors>', "<authors>Cloudmersive</authors>") | Set-Content $nuspecpath
+(Get-Content $nuspecpath).replace('<owners>$author$</owners>', "<owners>Cloudmersive</owners>") | Set-Content $nuspecpath
+(Get-Content $nuspecpath).replace('<description>A library generated from a Swagger doc</description>', "<description>The powerful Optical Character Recognition (OCR) APIs let you convert scanned images of pages into recognized text.</description>") | Set-Content $nuspecpath
+(Get-Content $nuspecpath).replace('<!-- Authors contain text that appears directly on the gallery -->', "<iconUrl>https://cloudmersive.com/images/cmsdk.png</iconUrl>") | Set-Content $nuspecpath
+
+
+
+
+
+
+
+./nuget.exe restore $csprojpath -SolutionDirectory ./client
+
+./nuget.exe restore $csprojtestpath -SolutionDirectory ./client
+
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\msbuild.exe $slnpath /t:rebuild 
+
+./nuget.exe pack $csprojpath
