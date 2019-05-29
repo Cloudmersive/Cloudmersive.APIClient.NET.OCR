@@ -25,7 +25,7 @@ using SwaggerDateConverter = Cloudmersive.APIClient.NET.OCR.Client.SwaggerDateCo
 namespace Cloudmersive.APIClient.NET.OCR.Model
 {
     /// <summary>
-    /// Response from an OCR to text operation.  Includes the confience rating and converted text result.
+    /// Response from an OCR to text operation.  Includes the confidence rating and converted text result.
     /// </summary>
     [DataContract]
     public partial class PdfToTextResponse :  IEquatable<PdfToTextResponse>, IValidatableObject
