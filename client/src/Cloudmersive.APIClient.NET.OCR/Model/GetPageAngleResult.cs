@@ -25,35 +25,35 @@ using SwaggerDateConverter = Cloudmersive.APIClient.NET.OCR.Client.SwaggerDateCo
 namespace Cloudmersive.APIClient.NET.OCR.Model
 {
     /// <summary>
-    /// A contiguous line of text in an OCR document
+    /// Result of performing a get-page-angle operation
     /// </summary>
     [DataContract]
-    public partial class OcrLineElement :  IEquatable<OcrLineElement>, IValidatableObject
+    public partial class GetPageAngleResult :  IEquatable<GetPageAngleResult>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="OcrLineElement" /> class.
+        /// Initializes a new instance of the <see cref="GetPageAngleResult" /> class.
         /// </summary>
-        /// <param name="lineText">Text of the line.</param>
-        /// <param name="words">Word objects in the line.</param>
-        public OcrLineElement(string lineText = default(string), List<OcrWordElement> words = default(List<OcrWordElement>))
+        /// <param name="successful">True if the operation was successful, false otherwise.</param>
+        /// <param name="angle">Angle of the page in radians; 0 represents perfectly horizontal.</param>
+        public GetPageAngleResult(bool? successful = default(bool?), double? angle = default(double?))
         {
-            this.LineText = lineText;
-            this.Words = words;
+            this.Successful = successful;
+            this.Angle = angle;
         }
         
         /// <summary>
-        /// Text of the line
+        /// True if the operation was successful, false otherwise
         /// </summary>
-        /// <value>Text of the line</value>
-        [DataMember(Name="LineText", EmitDefaultValue=false)]
-        public string LineText { get; set; }
+        /// <value>True if the operation was successful, false otherwise</value>
+        [DataMember(Name="Successful", EmitDefaultValue=false)]
+        public bool? Successful { get; set; }
 
         /// <summary>
-        /// Word objects in the line
+        /// Angle of the page in radians; 0 represents perfectly horizontal
         /// </summary>
-        /// <value>Word objects in the line</value>
-        [DataMember(Name="Words", EmitDefaultValue=false)]
-        public List<OcrWordElement> Words { get; set; }
+        /// <value>Angle of the page in radians; 0 represents perfectly horizontal</value>
+        [DataMember(Name="Angle", EmitDefaultValue=false)]
+        public double? Angle { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -62,9 +62,9 @@ namespace Cloudmersive.APIClient.NET.OCR.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class OcrLineElement {\n");
-            sb.Append("  LineText: ").Append(LineText).Append("\n");
-            sb.Append("  Words: ").Append(Words).Append("\n");
+            sb.Append("class GetPageAngleResult {\n");
+            sb.Append("  Successful: ").Append(Successful).Append("\n");
+            sb.Append("  Angle: ").Append(Angle).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -85,29 +85,29 @@ namespace Cloudmersive.APIClient.NET.OCR.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as OcrLineElement);
+            return this.Equals(input as GetPageAngleResult);
         }
 
         /// <summary>
-        /// Returns true if OcrLineElement instances are equal
+        /// Returns true if GetPageAngleResult instances are equal
         /// </summary>
-        /// <param name="input">Instance of OcrLineElement to be compared</param>
+        /// <param name="input">Instance of GetPageAngleResult to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(OcrLineElement input)
+        public bool Equals(GetPageAngleResult input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.LineText == input.LineText ||
-                    (this.LineText != null &&
-                    this.LineText.Equals(input.LineText))
+                    this.Successful == input.Successful ||
+                    (this.Successful != null &&
+                    this.Successful.Equals(input.Successful))
                 ) && 
                 (
-                    this.Words == input.Words ||
-                    this.Words != null &&
-                    this.Words.SequenceEqual(input.Words)
+                    this.Angle == input.Angle ||
+                    (this.Angle != null &&
+                    this.Angle.Equals(input.Angle))
                 );
         }
 
@@ -120,10 +120,10 @@ namespace Cloudmersive.APIClient.NET.OCR.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.LineText != null)
-                    hashCode = hashCode * 59 + this.LineText.GetHashCode();
-                if (this.Words != null)
-                    hashCode = hashCode * 59 + this.Words.GetHashCode();
+                if (this.Successful != null)
+                    hashCode = hashCode * 59 + this.Successful.GetHashCode();
+                if (this.Angle != null)
+                    hashCode = hashCode * 59 + this.Angle.GetHashCode();
                 return hashCode;
             }
         }

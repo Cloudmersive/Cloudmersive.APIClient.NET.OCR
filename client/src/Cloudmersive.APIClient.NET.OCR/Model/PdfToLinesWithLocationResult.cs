@@ -33,12 +33,12 @@ namespace Cloudmersive.APIClient.NET.OCR.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PdfToLinesWithLocationResult" /> class.
         /// </summary>
-        /// <param name="Successful">Successful.</param>
-        /// <param name="OcrPages">OcrPages.</param>
-        public PdfToLinesWithLocationResult(bool? Successful = default(bool?), List<OcrPageResultWithLinesWithLocation> OcrPages = default(List<OcrPageResultWithLinesWithLocation>))
+        /// <param name="successful">successful.</param>
+        /// <param name="ocrPages">ocrPages.</param>
+        public PdfToLinesWithLocationResult(bool? successful = default(bool?), List<OcrPageResultWithLinesWithLocation> ocrPages = default(List<OcrPageResultWithLinesWithLocation>))
         {
-            this.Successful = Successful;
-            this.OcrPages = OcrPages;
+            this.Successful = successful;
+            this.OcrPages = ocrPages;
         }
         
         /// <summary>
@@ -71,7 +71,7 @@ namespace Cloudmersive.APIClient.NET.OCR.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

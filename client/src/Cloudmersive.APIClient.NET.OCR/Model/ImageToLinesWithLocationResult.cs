@@ -33,12 +33,12 @@ namespace Cloudmersive.APIClient.NET.OCR.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ImageToLinesWithLocationResult" /> class.
         /// </summary>
-        /// <param name="Successful">Successful.</param>
-        /// <param name="Lines">Words in the image.</param>
-        public ImageToLinesWithLocationResult(bool? Successful = default(bool?), List<OcrLineElement> Lines = default(List<OcrLineElement>))
+        /// <param name="successful">successful.</param>
+        /// <param name="lines">Words in the image.</param>
+        public ImageToLinesWithLocationResult(bool? successful = default(bool?), List<OcrLineElement> lines = default(List<OcrLineElement>))
         {
-            this.Successful = Successful;
-            this.Lines = Lines;
+            this.Successful = successful;
+            this.Lines = lines;
         }
         
         /// <summary>
@@ -72,7 +72,7 @@ namespace Cloudmersive.APIClient.NET.OCR.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson()
+        public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }

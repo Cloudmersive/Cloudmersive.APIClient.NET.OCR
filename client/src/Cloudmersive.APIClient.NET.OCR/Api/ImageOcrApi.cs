@@ -284,7 +284,7 @@ namespace Cloudmersive.APIClient.NET.OCR.Api
         /// <returns></returns>
         public ImageOcrApi(String basePath)
         {
-            this.Configuration = new Configuration { BasePath = basePath };
+            this.Configuration = new Cloudmersive.APIClient.NET.OCR.Client.Configuration { BasePath = basePath };
 
             ExceptionFactory = Cloudmersive.APIClient.NET.OCR.Client.Configuration.DefaultExceptionFactory;
         }
@@ -295,10 +295,10 @@ namespace Cloudmersive.APIClient.NET.OCR.Api
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public ImageOcrApi(Configuration configuration = null)
+        public ImageOcrApi(Cloudmersive.APIClient.NET.OCR.Client.Configuration configuration = null)
         {
             if (configuration == null) // use the default one in Configuration
-                this.Configuration = Configuration.Default;
+                this.Configuration = Cloudmersive.APIClient.NET.OCR.Client.Configuration.Default;
             else
                 this.Configuration = configuration;
 
@@ -328,7 +328,7 @@ namespace Cloudmersive.APIClient.NET.OCR.Api
         /// Gets or sets the configuration object
         /// </summary>
         /// <value>An instance of the Configuration</value>
-        public Configuration Configuration {get; set;}
+        public Cloudmersive.APIClient.NET.OCR.Client.Configuration Configuration {get; set;}
 
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
@@ -399,7 +399,7 @@ namespace Cloudmersive.APIClient.NET.OCR.Api
             var localVarPath = "/ocr/image/to/lines-with-location";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -408,7 +408,7 @@ namespace Cloudmersive.APIClient.NET.OCR.Api
             String[] localVarHttpContentTypes = new String[] {
                 "multipart/form-data"
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
@@ -417,22 +417,22 @@ namespace Cloudmersive.APIClient.NET.OCR.Api
                 "application/xml",
                 "text/xml"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (language != null) localVarHeaderParams.Add("language", Configuration.ApiClient.ParameterToString(language)); // header parameter
-            if (preprocessing != null) localVarHeaderParams.Add("preprocessing", Configuration.ApiClient.ParameterToString(preprocessing)); // header parameter
-            if (imageFile != null) localVarFileParams.Add("imageFile", Configuration.ApiClient.ParameterToFile("imageFile", imageFile));
+            if (language != null) localVarHeaderParams.Add("language", this.Configuration.ApiClient.ParameterToString(language)); // header parameter
+            if (preprocessing != null) localVarHeaderParams.Add("preprocessing", this.Configuration.ApiClient.ParameterToString(preprocessing)); // header parameter
+            if (imageFile != null) localVarFileParams.Add("imageFile", this.Configuration.ApiClient.ParameterToFile("imageFile", imageFile));
 
             // authentication (Apikey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("Apikey")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
             {
-                localVarHeaderParams["Apikey"] = Configuration.GetApiKeyWithPrefix("Apikey");
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -446,7 +446,7 @@ namespace Cloudmersive.APIClient.NET.OCR.Api
 
             return new ApiResponse<ImageToLinesWithLocationResult>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ImageToLinesWithLocationResult) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ImageToLinesWithLocationResult)));
+                (ImageToLinesWithLocationResult) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ImageToLinesWithLocationResult)));
         }
 
         /// <summary>
@@ -481,7 +481,7 @@ namespace Cloudmersive.APIClient.NET.OCR.Api
             var localVarPath = "/ocr/image/to/lines-with-location";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -490,7 +490,7 @@ namespace Cloudmersive.APIClient.NET.OCR.Api
             String[] localVarHttpContentTypes = new String[] {
                 "multipart/form-data"
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
@@ -499,22 +499,22 @@ namespace Cloudmersive.APIClient.NET.OCR.Api
                 "application/xml",
                 "text/xml"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (language != null) localVarHeaderParams.Add("language", Configuration.ApiClient.ParameterToString(language)); // header parameter
-            if (preprocessing != null) localVarHeaderParams.Add("preprocessing", Configuration.ApiClient.ParameterToString(preprocessing)); // header parameter
-            if (imageFile != null) localVarFileParams.Add("imageFile", Configuration.ApiClient.ParameterToFile("imageFile", imageFile));
+            if (language != null) localVarHeaderParams.Add("language", this.Configuration.ApiClient.ParameterToString(language)); // header parameter
+            if (preprocessing != null) localVarHeaderParams.Add("preprocessing", this.Configuration.ApiClient.ParameterToString(preprocessing)); // header parameter
+            if (imageFile != null) localVarFileParams.Add("imageFile", this.Configuration.ApiClient.ParameterToFile("imageFile", imageFile));
 
             // authentication (Apikey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("Apikey")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
             {
-                localVarHeaderParams["Apikey"] = Configuration.GetApiKeyWithPrefix("Apikey");
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -528,7 +528,7 @@ namespace Cloudmersive.APIClient.NET.OCR.Api
 
             return new ApiResponse<ImageToLinesWithLocationResult>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ImageToLinesWithLocationResult) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ImageToLinesWithLocationResult)));
+                (ImageToLinesWithLocationResult) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ImageToLinesWithLocationResult)));
         }
 
         /// <summary>
@@ -562,7 +562,7 @@ namespace Cloudmersive.APIClient.NET.OCR.Api
             var localVarPath = "/ocr/image/to/words-with-location";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -571,7 +571,7 @@ namespace Cloudmersive.APIClient.NET.OCR.Api
             String[] localVarHttpContentTypes = new String[] {
                 "multipart/form-data"
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
@@ -580,22 +580,22 @@ namespace Cloudmersive.APIClient.NET.OCR.Api
                 "application/xml",
                 "text/xml"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (language != null) localVarHeaderParams.Add("language", Configuration.ApiClient.ParameterToString(language)); // header parameter
-            if (preprocessing != null) localVarHeaderParams.Add("preprocessing", Configuration.ApiClient.ParameterToString(preprocessing)); // header parameter
-            if (imageFile != null) localVarFileParams.Add("imageFile", Configuration.ApiClient.ParameterToFile("imageFile", imageFile));
+            if (language != null) localVarHeaderParams.Add("language", this.Configuration.ApiClient.ParameterToString(language)); // header parameter
+            if (preprocessing != null) localVarHeaderParams.Add("preprocessing", this.Configuration.ApiClient.ParameterToString(preprocessing)); // header parameter
+            if (imageFile != null) localVarFileParams.Add("imageFile", this.Configuration.ApiClient.ParameterToFile("imageFile", imageFile));
 
             // authentication (Apikey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("Apikey")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
             {
-                localVarHeaderParams["Apikey"] = Configuration.GetApiKeyWithPrefix("Apikey");
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -609,7 +609,7 @@ namespace Cloudmersive.APIClient.NET.OCR.Api
 
             return new ApiResponse<ImageToWordsWithLocationResult>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ImageToWordsWithLocationResult) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ImageToWordsWithLocationResult)));
+                (ImageToWordsWithLocationResult) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ImageToWordsWithLocationResult)));
         }
 
         /// <summary>
@@ -644,7 +644,7 @@ namespace Cloudmersive.APIClient.NET.OCR.Api
             var localVarPath = "/ocr/image/to/words-with-location";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -653,7 +653,7 @@ namespace Cloudmersive.APIClient.NET.OCR.Api
             String[] localVarHttpContentTypes = new String[] {
                 "multipart/form-data"
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
@@ -662,22 +662,22 @@ namespace Cloudmersive.APIClient.NET.OCR.Api
                 "application/xml",
                 "text/xml"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (language != null) localVarHeaderParams.Add("language", Configuration.ApiClient.ParameterToString(language)); // header parameter
-            if (preprocessing != null) localVarHeaderParams.Add("preprocessing", Configuration.ApiClient.ParameterToString(preprocessing)); // header parameter
-            if (imageFile != null) localVarFileParams.Add("imageFile", Configuration.ApiClient.ParameterToFile("imageFile", imageFile));
+            if (language != null) localVarHeaderParams.Add("language", this.Configuration.ApiClient.ParameterToString(language)); // header parameter
+            if (preprocessing != null) localVarHeaderParams.Add("preprocessing", this.Configuration.ApiClient.ParameterToString(preprocessing)); // header parameter
+            if (imageFile != null) localVarFileParams.Add("imageFile", this.Configuration.ApiClient.ParameterToFile("imageFile", imageFile));
 
             // authentication (Apikey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("Apikey")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
             {
-                localVarHeaderParams["Apikey"] = Configuration.GetApiKeyWithPrefix("Apikey");
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -691,7 +691,7 @@ namespace Cloudmersive.APIClient.NET.OCR.Api
 
             return new ApiResponse<ImageToWordsWithLocationResult>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ImageToWordsWithLocationResult) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ImageToWordsWithLocationResult)));
+                (ImageToWordsWithLocationResult) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ImageToWordsWithLocationResult)));
         }
 
         /// <summary>
@@ -723,7 +723,7 @@ namespace Cloudmersive.APIClient.NET.OCR.Api
             var localVarPath = "/ocr/photo/toText";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -732,7 +732,7 @@ namespace Cloudmersive.APIClient.NET.OCR.Api
             String[] localVarHttpContentTypes = new String[] {
                 "multipart/form-data"
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
@@ -741,21 +741,21 @@ namespace Cloudmersive.APIClient.NET.OCR.Api
                 "application/xml",
                 "text/xml"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (language != null) localVarHeaderParams.Add("language", Configuration.ApiClient.ParameterToString(language)); // header parameter
-            if (imageFile != null) localVarFileParams.Add("imageFile", Configuration.ApiClient.ParameterToFile("imageFile", imageFile));
+            if (language != null) localVarHeaderParams.Add("language", this.Configuration.ApiClient.ParameterToString(language)); // header parameter
+            if (imageFile != null) localVarFileParams.Add("imageFile", this.Configuration.ApiClient.ParameterToFile("imageFile", imageFile));
 
             // authentication (Apikey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("Apikey")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
             {
-                localVarHeaderParams["Apikey"] = Configuration.GetApiKeyWithPrefix("Apikey");
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -769,7 +769,7 @@ namespace Cloudmersive.APIClient.NET.OCR.Api
 
             return new ApiResponse<ImageToTextResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ImageToTextResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ImageToTextResponse)));
+                (ImageToTextResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ImageToTextResponse)));
         }
 
         /// <summary>
@@ -802,7 +802,7 @@ namespace Cloudmersive.APIClient.NET.OCR.Api
             var localVarPath = "/ocr/photo/toText";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -811,7 +811,7 @@ namespace Cloudmersive.APIClient.NET.OCR.Api
             String[] localVarHttpContentTypes = new String[] {
                 "multipart/form-data"
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
@@ -820,21 +820,21 @@ namespace Cloudmersive.APIClient.NET.OCR.Api
                 "application/xml",
                 "text/xml"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (language != null) localVarHeaderParams.Add("language", Configuration.ApiClient.ParameterToString(language)); // header parameter
-            if (imageFile != null) localVarFileParams.Add("imageFile", Configuration.ApiClient.ParameterToFile("imageFile", imageFile));
+            if (language != null) localVarHeaderParams.Add("language", this.Configuration.ApiClient.ParameterToString(language)); // header parameter
+            if (imageFile != null) localVarFileParams.Add("imageFile", this.Configuration.ApiClient.ParameterToFile("imageFile", imageFile));
 
             // authentication (Apikey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("Apikey")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
             {
-                localVarHeaderParams["Apikey"] = Configuration.GetApiKeyWithPrefix("Apikey");
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -848,7 +848,7 @@ namespace Cloudmersive.APIClient.NET.OCR.Api
 
             return new ApiResponse<ImageToTextResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ImageToTextResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ImageToTextResponse)));
+                (ImageToTextResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ImageToTextResponse)));
         }
 
         /// <summary>
@@ -880,7 +880,7 @@ namespace Cloudmersive.APIClient.NET.OCR.Api
             var localVarPath = "/ocr/photo/to/words-with-location";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -889,7 +889,7 @@ namespace Cloudmersive.APIClient.NET.OCR.Api
             String[] localVarHttpContentTypes = new String[] {
                 "multipart/form-data"
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
@@ -898,21 +898,21 @@ namespace Cloudmersive.APIClient.NET.OCR.Api
                 "application/xml",
                 "text/xml"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (language != null) localVarHeaderParams.Add("language", Configuration.ApiClient.ParameterToString(language)); // header parameter
-            if (imageFile != null) localVarFileParams.Add("imageFile", Configuration.ApiClient.ParameterToFile("imageFile", imageFile));
+            if (language != null) localVarHeaderParams.Add("language", this.Configuration.ApiClient.ParameterToString(language)); // header parameter
+            if (imageFile != null) localVarFileParams.Add("imageFile", this.Configuration.ApiClient.ParameterToFile("imageFile", imageFile));
 
             // authentication (Apikey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("Apikey")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
             {
-                localVarHeaderParams["Apikey"] = Configuration.GetApiKeyWithPrefix("Apikey");
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -926,7 +926,7 @@ namespace Cloudmersive.APIClient.NET.OCR.Api
 
             return new ApiResponse<PhotoToWordsWithLocationResult>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (PhotoToWordsWithLocationResult) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PhotoToWordsWithLocationResult)));
+                (PhotoToWordsWithLocationResult) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PhotoToWordsWithLocationResult)));
         }
 
         /// <summary>
@@ -959,7 +959,7 @@ namespace Cloudmersive.APIClient.NET.OCR.Api
             var localVarPath = "/ocr/photo/to/words-with-location";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -968,7 +968,7 @@ namespace Cloudmersive.APIClient.NET.OCR.Api
             String[] localVarHttpContentTypes = new String[] {
                 "multipart/form-data"
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
@@ -977,21 +977,21 @@ namespace Cloudmersive.APIClient.NET.OCR.Api
                 "application/xml",
                 "text/xml"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (language != null) localVarHeaderParams.Add("language", Configuration.ApiClient.ParameterToString(language)); // header parameter
-            if (imageFile != null) localVarFileParams.Add("imageFile", Configuration.ApiClient.ParameterToFile("imageFile", imageFile));
+            if (language != null) localVarHeaderParams.Add("language", this.Configuration.ApiClient.ParameterToString(language)); // header parameter
+            if (imageFile != null) localVarFileParams.Add("imageFile", this.Configuration.ApiClient.ParameterToFile("imageFile", imageFile));
 
             // authentication (Apikey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("Apikey")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
             {
-                localVarHeaderParams["Apikey"] = Configuration.GetApiKeyWithPrefix("Apikey");
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -1005,7 +1005,7 @@ namespace Cloudmersive.APIClient.NET.OCR.Api
 
             return new ApiResponse<PhotoToWordsWithLocationResult>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (PhotoToWordsWithLocationResult) Configuration.ApiClient.Deserialize(localVarResponse, typeof(PhotoToWordsWithLocationResult)));
+                (PhotoToWordsWithLocationResult) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(PhotoToWordsWithLocationResult)));
         }
 
         /// <summary>
@@ -1039,7 +1039,7 @@ namespace Cloudmersive.APIClient.NET.OCR.Api
             var localVarPath = "/ocr/image/toText";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -1048,7 +1048,7 @@ namespace Cloudmersive.APIClient.NET.OCR.Api
             String[] localVarHttpContentTypes = new String[] {
                 "multipart/form-data"
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
@@ -1057,22 +1057,22 @@ namespace Cloudmersive.APIClient.NET.OCR.Api
                 "application/xml",
                 "text/xml"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (language != null) localVarHeaderParams.Add("language", Configuration.ApiClient.ParameterToString(language)); // header parameter
-            if (preprocessing != null) localVarHeaderParams.Add("preprocessing", Configuration.ApiClient.ParameterToString(preprocessing)); // header parameter
-            if (imageFile != null) localVarFileParams.Add("imageFile", Configuration.ApiClient.ParameterToFile("imageFile", imageFile));
+            if (language != null) localVarHeaderParams.Add("language", this.Configuration.ApiClient.ParameterToString(language)); // header parameter
+            if (preprocessing != null) localVarHeaderParams.Add("preprocessing", this.Configuration.ApiClient.ParameterToString(preprocessing)); // header parameter
+            if (imageFile != null) localVarFileParams.Add("imageFile", this.Configuration.ApiClient.ParameterToFile("imageFile", imageFile));
 
             // authentication (Apikey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("Apikey")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
             {
-                localVarHeaderParams["Apikey"] = Configuration.GetApiKeyWithPrefix("Apikey");
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -1086,7 +1086,7 @@ namespace Cloudmersive.APIClient.NET.OCR.Api
 
             return new ApiResponse<ImageToTextResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ImageToTextResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ImageToTextResponse)));
+                (ImageToTextResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ImageToTextResponse)));
         }
 
         /// <summary>
@@ -1121,7 +1121,7 @@ namespace Cloudmersive.APIClient.NET.OCR.Api
             var localVarPath = "/ocr/image/toText";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
             var localVarFormParams = new Dictionary<String, String>();
             var localVarFileParams = new Dictionary<String, FileParameter>();
             Object localVarPostBody = null;
@@ -1130,7 +1130,7 @@ namespace Cloudmersive.APIClient.NET.OCR.Api
             String[] localVarHttpContentTypes = new String[] {
                 "multipart/form-data"
             };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
 
             // to determine the Accept header
             String[] localVarHttpHeaderAccepts = new String[] {
@@ -1139,22 +1139,22 @@ namespace Cloudmersive.APIClient.NET.OCR.Api
                 "application/xml",
                 "text/xml"
             };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (language != null) localVarHeaderParams.Add("language", Configuration.ApiClient.ParameterToString(language)); // header parameter
-            if (preprocessing != null) localVarHeaderParams.Add("preprocessing", Configuration.ApiClient.ParameterToString(preprocessing)); // header parameter
-            if (imageFile != null) localVarFileParams.Add("imageFile", Configuration.ApiClient.ParameterToFile("imageFile", imageFile));
+            if (language != null) localVarHeaderParams.Add("language", this.Configuration.ApiClient.ParameterToString(language)); // header parameter
+            if (preprocessing != null) localVarHeaderParams.Add("preprocessing", this.Configuration.ApiClient.ParameterToString(preprocessing)); // header parameter
+            if (imageFile != null) localVarFileParams.Add("imageFile", this.Configuration.ApiClient.ParameterToFile("imageFile", imageFile));
 
             // authentication (Apikey) required
-            if (!String.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("Apikey")))
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Apikey")))
             {
-                localVarHeaderParams["Apikey"] = Configuration.GetApiKeyWithPrefix("Apikey");
+                localVarHeaderParams["Apikey"] = this.Configuration.GetApiKeyWithPrefix("Apikey");
             }
 
             // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
                 Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
@@ -1168,7 +1168,7 @@ namespace Cloudmersive.APIClient.NET.OCR.Api
 
             return new ApiResponse<ImageToTextResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ImageToTextResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ImageToTextResponse)));
+                (ImageToTextResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ImageToTextResponse)));
         }
 
     }
