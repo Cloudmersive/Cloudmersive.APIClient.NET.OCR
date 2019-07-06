@@ -77,6 +77,18 @@ namespace Cloudmersive.APIClient.NET.OCR.Test
         }
         
         /// <summary>
+        /// Test PreprocessingBinarizeAdvanced
+        /// </summary>
+        [Test]
+        public void PreprocessingBinarizeAdvancedTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //System.IO.Stream imageFile = null;
+            //var response = instance.PreprocessingBinarizeAdvanced(imageFile);
+            //Assert.IsInstanceOf<Object> (response, "response is Object");
+        }
+        
+        /// <summary>
         /// Test PreprocessingGetPageAngle
         /// </summary>
         [Test]
