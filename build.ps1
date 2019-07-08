@@ -23,7 +23,7 @@ $slnpath = Resolve-Path ./client/Cloudmersive.APIClient.NET.OCR.sln
 (Get-Content $nuspecpath).replace('<description>A library generated from a Swagger doc</description>', "<description>The powerful Optical Character Recognition (OCR) APIs let you convert scanned images of pages into recognized text.</description>") | Set-Content $nuspecpath
 (Get-Content $nuspecpath).replace('<!-- Authors contain text that appears directly on the gallery -->', "<iconUrl>https://cloudmersive.com/images/cmsdk.png</iconUrl>") | Set-Content $nuspecpath
 (Get-Content $nuspecpath).replace('<dependencies>', "<projectUrl>https://cloudmersive.com/ocr-api</projectUrl><dependencies>") | Set-Content $nuspecpath
-
+(Get-Content '.\client\src\Cloudmersive.APIClient.NET.OCR\Client\Configuration.cs').replace('Timeout = 100000;', "Timeout = 900000;") | Set-Content '.\client\src\Cloudmersive.APIClient.NET.OCR\Client\Configuration.cs'
 
 
 
