@@ -33,15 +33,16 @@ namespace Cloudmersive.APIClient.NET.OCR.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FormDefinitionTemplate" /> class.
         /// </summary>
-        /// <param name="fieldDefinitions">fieldDefinitions.</param>
+        /// <param name="fieldDefinitions">Field definitions in the template.</param>
         public FormDefinitionTemplate(List<FormFieldDefinition> fieldDefinitions = default(List<FormFieldDefinition>))
         {
             this.FieldDefinitions = fieldDefinitions;
         }
         
         /// <summary>
-        /// Gets or Sets FieldDefinitions
+        /// Field definitions in the template
         /// </summary>
+        /// <value>Field definitions in the template</value>
         [DataMember(Name="FieldDefinitions", EmitDefaultValue=false)]
         public List<FormFieldDefinition> FieldDefinitions { get; set; }
 

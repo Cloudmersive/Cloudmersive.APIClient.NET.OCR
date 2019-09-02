@@ -1,7 +1,7 @@
 ﻿{
 
   "packageName" : "Cloudmersive.APIClient.NET.OCR",
-  "packageVersion": "2.0.8",
+  "packageVersion": "2.0.9",
   "netCoreProjectFile": "false",
   "packageGuid": "806baa58-dfa2-4fb4-8a54-168ce9745f75"
 }  

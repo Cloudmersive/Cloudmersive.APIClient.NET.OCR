@@ -33,7 +33,7 @@ namespace Cloudmersive.APIClient.NET.OCR.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ImageToWordsWithLocationResult" /> class.
         /// </summary>
-        /// <param name="successful">successful.</param>
+        /// <param name="successful">True if successful, false otherwise.</param>
         /// <param name="words">Word elements in the image.</param>
         public ImageToWordsWithLocationResult(bool? successful = default(bool?), List<OcrWordElement> words = default(List<OcrWordElement>))
         {
@@ -42,8 +42,9 @@ namespace Cloudmersive.APIClient.NET.OCR.Model
         }
         
         /// <summary>
-        /// Gets or Sets Successful
+        /// True if successful, false otherwise
         /// </summary>
+        /// <value>True if successful, false otherwise</value>
         [DataMember(Name="Successful", EmitDefaultValue=false)]
         public bool? Successful { get; set; }
 

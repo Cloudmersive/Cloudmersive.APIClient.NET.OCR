@@ -33,8 +33,8 @@ namespace Cloudmersive.APIClient.NET.OCR.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FormRecognitionResult" /> class.
         /// </summary>
-        /// <param name="successful">successful.</param>
-        /// <param name="fieldValueExtractionResult">fieldValueExtractionResult.</param>
+        /// <param name="successful">True if the operation was successful, false otherwise.</param>
+        /// <param name="fieldValueExtractionResult">Result of form field OCR data extraction.</param>
         public FormRecognitionResult(bool? successful = default(bool?), List<FieldResult> fieldValueExtractionResult = default(List<FieldResult>))
         {
             this.Successful = successful;
@@ -42,14 +42,16 @@ namespace Cloudmersive.APIClient.NET.OCR.Model
         }
         
         /// <summary>
-        /// Gets or Sets Successful
+        /// True if the operation was successful, false otherwise
         /// </summary>
+        /// <value>True if the operation was successful, false otherwise</value>
         [DataMember(Name="Successful", EmitDefaultValue=false)]
         public bool? Successful { get; set; }
 
         /// <summary>
-        /// Gets or Sets FieldValueExtractionResult
+        /// Result of form field OCR data extraction
         /// </summary>
+        /// <value>Result of form field OCR data extraction</value>
         [DataMember(Name="FieldValueExtractionResult", EmitDefaultValue=false)]
         public List<FieldResult> FieldValueExtractionResult { get; set; }
 

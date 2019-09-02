@@ -33,8 +33,8 @@ namespace Cloudmersive.APIClient.NET.OCR.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ReceiptLineItem" /> class.
         /// </summary>
-        /// <param name="itemDescription">itemDescription.</param>
-        /// <param name="itemPrice">itemPrice.</param>
+        /// <param name="itemDescription">Description of the item.</param>
+        /// <param name="itemPrice">Price of the item if available.</param>
         public ReceiptLineItem(string itemDescription = default(string), double? itemPrice = default(double?))
         {
             this.ItemDescription = itemDescription;
@@ -42,14 +42,16 @@ namespace Cloudmersive.APIClient.NET.OCR.Model
         }
         
         /// <summary>
-        /// Gets or Sets ItemDescription
+        /// Description of the item
         /// </summary>
+        /// <value>Description of the item</value>
         [DataMember(Name="ItemDescription", EmitDefaultValue=false)]
         public string ItemDescription { get; set; }
 
         /// <summary>
-        /// Gets or Sets ItemPrice
+        /// Price of the item if available
         /// </summary>
+        /// <value>Price of the item if available</value>
         [DataMember(Name="ItemPrice", EmitDefaultValue=false)]
         public double? ItemPrice { get; set; }
 

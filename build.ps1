@@ -17,7 +17,7 @@ $nuspecpath = Resolve-Path ./client/src/Cloudmersive.APIClient.NET.OCR/Cloudmers
 $slnpath = Resolve-Path ./client/Cloudmersive.APIClient.NET.OCR.sln
 
 
-(Get-Content $nuspecpath).replace('<title>Swagger Library</title>', "<title>Cloudmersive OCR API Client</title>") | Set-Content $nuspecpath
+(Get-Content $nuspecpath).replace('<title>Swagger Library</title>', "<title>Cloudmersive OCR API Client</title><licenseUrl>https://www.apache.org/licenses/LICENSE-2.0.txt</licenseUrl>") | Set-Content $nuspecpath
 (Get-Content $nuspecpath).replace('<authors>$author$</authors>', "<authors>Cloudmersive</authors>") | Set-Content $nuspecpath
 (Get-Content $nuspecpath).replace('<owners>$author$</owners>', "<owners>Cloudmersive</owners>") | Set-Content $nuspecpath
 (Get-Content $nuspecpath).replace('<description>A library generated from a Swagger doc</description>', "<description>The powerful Optical Character Recognition (OCR) APIs let you convert scanned images of pages into recognized text.</description>") | Set-Content $nuspecpath

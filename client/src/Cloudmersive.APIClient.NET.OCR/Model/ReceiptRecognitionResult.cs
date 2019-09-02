@@ -33,14 +33,14 @@ namespace Cloudmersive.APIClient.NET.OCR.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ReceiptRecognitionResult" /> class.
         /// </summary>
-        /// <param name="successful">successful.</param>
-        /// <param name="timestamp">timestamp.</param>
-        /// <param name="businessName">businessName.</param>
-        /// <param name="businessWebsite">businessWebsite.</param>
-        /// <param name="addressString">addressString.</param>
-        /// <param name="phoneNumber">phoneNumber.</param>
-        /// <param name="receiptItems">receiptItems.</param>
-        /// <param name="receiptTotal">receiptTotal.</param>
+        /// <param name="successful">True if the operation was successful, false otherwise.</param>
+        /// <param name="timestamp">The date and time printed on the receipt (if included on the receipt).</param>
+        /// <param name="businessName">The name of the business printed on the receipt (if included on the receipt).</param>
+        /// <param name="businessWebsite">The website URL of the business printed on the receipt (if included on the receipt).</param>
+        /// <param name="addressString">The address of the business printed on the receipt (if included on the receipt).</param>
+        /// <param name="phoneNumber">The phone number printed on the receipt (if included on the receipt).</param>
+        /// <param name="receiptItems">The individual line items comprising the order; does not include total (see ReceiptTotal).</param>
+        /// <param name="receiptTotal">The total monetary value of the receipt (if included on the receipt).</param>
         public ReceiptRecognitionResult(bool? successful = default(bool?), DateTime? timestamp = default(DateTime?), string businessName = default(string), string businessWebsite = default(string), string addressString = default(string), string phoneNumber = default(string), List<ReceiptLineItem> receiptItems = default(List<ReceiptLineItem>), double? receiptTotal = default(double?))
         {
             this.Successful = successful;
@@ -54,50 +54,58 @@ namespace Cloudmersive.APIClient.NET.OCR.Model
         }
         
         /// <summary>
-        /// Gets or Sets Successful
+        /// True if the operation was successful, false otherwise
         /// </summary>
+        /// <value>True if the operation was successful, false otherwise</value>
         [DataMember(Name="Successful", EmitDefaultValue=false)]
         public bool? Successful { get; set; }
 
         /// <summary>
-        /// Gets or Sets Timestamp
+        /// The date and time printed on the receipt (if included on the receipt)
         /// </summary>
+        /// <value>The date and time printed on the receipt (if included on the receipt)</value>
         [DataMember(Name="Timestamp", EmitDefaultValue=false)]
         public DateTime? Timestamp { get; set; }
 
         /// <summary>
-        /// Gets or Sets BusinessName
+        /// The name of the business printed on the receipt (if included on the receipt)
         /// </summary>
+        /// <value>The name of the business printed on the receipt (if included on the receipt)</value>
         [DataMember(Name="BusinessName", EmitDefaultValue=false)]
         public string BusinessName { get; set; }
 
         /// <summary>
-        /// Gets or Sets BusinessWebsite
+        /// The website URL of the business printed on the receipt (if included on the receipt)
         /// </summary>
+        /// <value>The website URL of the business printed on the receipt (if included on the receipt)</value>
         [DataMember(Name="BusinessWebsite", EmitDefaultValue=false)]
         public string BusinessWebsite { get; set; }
 
         /// <summary>
-        /// Gets or Sets AddressString
+        /// The address of the business printed on the receipt (if included on the receipt)
         /// </summary>
+        /// <value>The address of the business printed on the receipt (if included on the receipt)</value>
         [DataMember(Name="AddressString", EmitDefaultValue=false)]
         public string AddressString { get; set; }
 
         /// <summary>
-        /// Gets or Sets PhoneNumber
+        /// The phone number printed on the receipt (if included on the receipt)
         /// </summary>
+        /// <value>The phone number printed on the receipt (if included on the receipt)</value>
         [DataMember(Name="PhoneNumber", EmitDefaultValue=false)]
         public string PhoneNumber { get; set; }
 
         /// <summary>
-        /// Gets or Sets ReceiptItems
+        /// The individual line items comprising the order; does not include total (see ReceiptTotal)
         /// </summary>
+        /// <value>The individual line items comprising the order; does not include total (see ReceiptTotal)</value>
         [DataMember(Name="ReceiptItems", EmitDefaultValue=false)]
         public List<ReceiptLineItem> ReceiptItems { get; set; }
 
         /// <summary>
-        /// Gets or Sets ReceiptTotal
+        /// The total monetary value of the receipt (if included on the receipt)
         /// </summary>
+        /// <value>The total monetary value of the receipt (if included on the receipt)</value>
         [DataMember(Name="ReceiptTotal", EmitDefaultValue=false)]
         public double? ReceiptTotal { get; set; }
 
