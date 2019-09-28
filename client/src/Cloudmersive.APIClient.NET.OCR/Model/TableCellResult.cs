@@ -25,35 +25,35 @@ using SwaggerDateConverter = Cloudmersive.APIClient.NET.OCR.Client.SwaggerDateCo
 namespace Cloudmersive.APIClient.NET.OCR.Model
 {
     /// <summary>
-    /// Response from an OCR to lines with location operation.  Includes the confience rating and converted text result, along with the locations of the lines in the pages.
+    /// The recognition result of one cell in one row in a table of a form
     /// </summary>
     [DataContract]
-    public partial class PdfToLinesWithLocationResult :  IEquatable<PdfToLinesWithLocationResult>, IValidatableObject
+    public partial class TableCellResult :  IEquatable<TableCellResult>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PdfToLinesWithLocationResult" /> class.
+        /// Initializes a new instance of the <see cref="TableCellResult" /> class.
         /// </summary>
-        /// <param name="successful">True if successful, false otherwise.</param>
-        /// <param name="ocrPages">OCR results for each page.</param>
-        public PdfToLinesWithLocationResult(bool? successful = default(bool?), List<OcrPageResultWithLinesWithLocation> ocrPages = default(List<OcrPageResultWithLinesWithLocation>))
+        /// <param name="columnID">The ID of the column.</param>
+        /// <param name="cellValues">Result cell value(s) extracted.</param>
+        public TableCellResult(string columnID = default(string), List<OcrPhotoTextElement> cellValues = default(List<OcrPhotoTextElement>))
         {
-            this.Successful = successful;
-            this.OcrPages = ocrPages;
+            this.ColumnID = columnID;
+            this.CellValues = cellValues;
         }
         
         /// <summary>
-        /// True if successful, false otherwise
+        /// The ID of the column
         /// </summary>
-        /// <value>True if successful, false otherwise</value>
-        [DataMember(Name="Successful", EmitDefaultValue=false)]
-        public bool? Successful { get; set; }
+        /// <value>The ID of the column</value>
+        [DataMember(Name="ColumnID", EmitDefaultValue=false)]
+        public string ColumnID { get; set; }
 
         /// <summary>
-        /// OCR results for each page
+        /// Result cell value(s) extracted
         /// </summary>
-        /// <value>OCR results for each page</value>
-        [DataMember(Name="OcrPages", EmitDefaultValue=false)]
-        public List<OcrPageResultWithLinesWithLocation> OcrPages { get; set; }
+        /// <value>Result cell value(s) extracted</value>
+        [DataMember(Name="CellValues", EmitDefaultValue=false)]
+        public List<OcrPhotoTextElement> CellValues { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -62,9 +62,9 @@ namespace Cloudmersive.APIClient.NET.OCR.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class PdfToLinesWithLocationResult {\n");
-            sb.Append("  Successful: ").Append(Successful).Append("\n");
-            sb.Append("  OcrPages: ").Append(OcrPages).Append("\n");
+            sb.Append("class TableCellResult {\n");
+            sb.Append("  ColumnID: ").Append(ColumnID).Append("\n");
+            sb.Append("  CellValues: ").Append(CellValues).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -85,29 +85,29 @@ namespace Cloudmersive.APIClient.NET.OCR.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PdfToLinesWithLocationResult);
+            return this.Equals(input as TableCellResult);
         }
 
         /// <summary>
-        /// Returns true if PdfToLinesWithLocationResult instances are equal
+        /// Returns true if TableCellResult instances are equal
         /// </summary>
-        /// <param name="input">Instance of PdfToLinesWithLocationResult to be compared</param>
+        /// <param name="input">Instance of TableCellResult to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PdfToLinesWithLocationResult input)
+        public bool Equals(TableCellResult input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Successful == input.Successful ||
-                    (this.Successful != null &&
-                    this.Successful.Equals(input.Successful))
+                    this.ColumnID == input.ColumnID ||
+                    (this.ColumnID != null &&
+                    this.ColumnID.Equals(input.ColumnID))
                 ) && 
                 (
-                    this.OcrPages == input.OcrPages ||
-                    this.OcrPages != null &&
-                    this.OcrPages.SequenceEqual(input.OcrPages)
+                    this.CellValues == input.CellValues ||
+                    this.CellValues != null &&
+                    this.CellValues.SequenceEqual(input.CellValues)
                 );
         }
 
@@ -120,10 +120,10 @@ namespace Cloudmersive.APIClient.NET.OCR.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Successful != null)
-                    hashCode = hashCode * 59 + this.Successful.GetHashCode();
-                if (this.OcrPages != null)
-                    hashCode = hashCode * 59 + this.OcrPages.GetHashCode();
+                if (this.ColumnID != null)
+                    hashCode = hashCode * 59 + this.ColumnID.GetHashCode();
+                if (this.CellValues != null)
+                    hashCode = hashCode * 59 + this.CellValues.GetHashCode();
                 return hashCode;
             }
         }

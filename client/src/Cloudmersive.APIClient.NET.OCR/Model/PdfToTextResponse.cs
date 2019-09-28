@@ -33,8 +33,8 @@ namespace Cloudmersive.APIClient.NET.OCR.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PdfToTextResponse" /> class.
         /// </summary>
-        /// <param name="successful">successful.</param>
-        /// <param name="ocrPages">ocrPages.</param>
+        /// <param name="successful">True if successful, false otherwise.</param>
+        /// <param name="ocrPages">Page OCR results.</param>
         public PdfToTextResponse(bool? successful = default(bool?), List<OcrPageResult> ocrPages = default(List<OcrPageResult>))
         {
             this.Successful = successful;
@@ -42,14 +42,16 @@ namespace Cloudmersive.APIClient.NET.OCR.Model
         }
         
         /// <summary>
-        /// Gets or Sets Successful
+        /// True if successful, false otherwise
         /// </summary>
+        /// <value>True if successful, false otherwise</value>
         [DataMember(Name="Successful", EmitDefaultValue=false)]
         public bool? Successful { get; set; }
 
         /// <summary>
-        /// Gets or Sets OcrPages
+        /// Page OCR results
         /// </summary>
+        /// <value>Page OCR results</value>
         [DataMember(Name="OcrPages", EmitDefaultValue=false)]
         public List<OcrPageResult> OcrPages { get; set; }
 

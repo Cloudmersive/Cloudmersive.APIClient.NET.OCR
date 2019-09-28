@@ -25,35 +25,35 @@ using SwaggerDateConverter = Cloudmersive.APIClient.NET.OCR.Client.SwaggerDateCo
 namespace Cloudmersive.APIClient.NET.OCR.Model
 {
     /// <summary>
-    /// Response from an OCR to lines with location operation.  Includes the confience rating and converted text result, along with the locations of the lines in the pages.
+    /// Point location in 2D in an image, where 0, 0 represents the top/left corner of the image
     /// </summary>
     [DataContract]
-    public partial class PdfToLinesWithLocationResult :  IEquatable<PdfToLinesWithLocationResult>, IValidatableObject
+    public partial class Point :  IEquatable<Point>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PdfToLinesWithLocationResult" /> class.
+        /// Initializes a new instance of the <see cref="Point" /> class.
         /// </summary>
-        /// <param name="successful">True if successful, false otherwise.</param>
-        /// <param name="ocrPages">OCR results for each page.</param>
-        public PdfToLinesWithLocationResult(bool? successful = default(bool?), List<OcrPageResultWithLinesWithLocation> ocrPages = default(List<OcrPageResultWithLinesWithLocation>))
+        /// <param name="x">X location in 2D in the image, where 0 represents the left edge of the image.</param>
+        /// <param name="y">Y location in 2D in the image, where 0 represents the top edge of the image.</param>
+        public Point(int? x = default(int?), int? y = default(int?))
         {
-            this.Successful = successful;
-            this.OcrPages = ocrPages;
+            this.X = x;
+            this.Y = y;
         }
         
         /// <summary>
-        /// True if successful, false otherwise
+        /// X location in 2D in the image, where 0 represents the left edge of the image
         /// </summary>
-        /// <value>True if successful, false otherwise</value>
-        [DataMember(Name="Successful", EmitDefaultValue=false)]
-        public bool? Successful { get; set; }
+        /// <value>X location in 2D in the image, where 0 represents the left edge of the image</value>
+        [DataMember(Name="X", EmitDefaultValue=false)]
+        public int? X { get; set; }
 
         /// <summary>
-        /// OCR results for each page
+        /// Y location in 2D in the image, where 0 represents the top edge of the image
         /// </summary>
-        /// <value>OCR results for each page</value>
-        [DataMember(Name="OcrPages", EmitDefaultValue=false)]
-        public List<OcrPageResultWithLinesWithLocation> OcrPages { get; set; }
+        /// <value>Y location in 2D in the image, where 0 represents the top edge of the image</value>
+        [DataMember(Name="Y", EmitDefaultValue=false)]
+        public int? Y { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -62,9 +62,9 @@ namespace Cloudmersive.APIClient.NET.OCR.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class PdfToLinesWithLocationResult {\n");
-            sb.Append("  Successful: ").Append(Successful).Append("\n");
-            sb.Append("  OcrPages: ").Append(OcrPages).Append("\n");
+            sb.Append("class Point {\n");
+            sb.Append("  X: ").Append(X).Append("\n");
+            sb.Append("  Y: ").Append(Y).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -85,29 +85,29 @@ namespace Cloudmersive.APIClient.NET.OCR.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PdfToLinesWithLocationResult);
+            return this.Equals(input as Point);
         }
 
         /// <summary>
-        /// Returns true if PdfToLinesWithLocationResult instances are equal
+        /// Returns true if Point instances are equal
         /// </summary>
-        /// <param name="input">Instance of PdfToLinesWithLocationResult to be compared</param>
+        /// <param name="input">Instance of Point to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PdfToLinesWithLocationResult input)
+        public bool Equals(Point input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Successful == input.Successful ||
-                    (this.Successful != null &&
-                    this.Successful.Equals(input.Successful))
+                    this.X == input.X ||
+                    (this.X != null &&
+                    this.X.Equals(input.X))
                 ) && 
                 (
-                    this.OcrPages == input.OcrPages ||
-                    this.OcrPages != null &&
-                    this.OcrPages.SequenceEqual(input.OcrPages)
+                    this.Y == input.Y ||
+                    (this.Y != null &&
+                    this.Y.Equals(input.Y))
                 );
         }
 
@@ -120,10 +120,10 @@ namespace Cloudmersive.APIClient.NET.OCR.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Successful != null)
-                    hashCode = hashCode * 59 + this.Successful.GetHashCode();
-                if (this.OcrPages != null)
-                    hashCode = hashCode * 59 + this.OcrPages.GetHashCode();
+                if (this.X != null)
+                    hashCode = hashCode * 59 + this.X.GetHashCode();
+                if (this.Y != null)
+                    hashCode = hashCode * 59 + this.Y.GetHashCode();
                 return hashCode;
             }
         }

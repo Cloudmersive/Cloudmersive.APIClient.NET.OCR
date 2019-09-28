@@ -82,6 +82,14 @@ namespace Cloudmersive.APIClient.NET.OCR.Test
         {
             // TODO unit test for the property 'FieldValueExtractionResult'
         }
+        /// <summary>
+        /// Test the property 'TableValueExtractionResults'
+        /// </summary>
+        [Test]
+        public void TableValueExtractionResultsTest()
+        {
+            // TODO unit test for the property 'TableValueExtractionResults'
+        }
 
     }
 

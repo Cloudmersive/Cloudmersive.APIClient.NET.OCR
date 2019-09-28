@@ -35,10 +35,12 @@ namespace Cloudmersive.APIClient.NET.OCR.Model
         /// </summary>
         /// <param name="successful">True if the operation was successful, false otherwise.</param>
         /// <param name="fieldValueExtractionResult">Result of form field OCR data extraction.</param>
-        public FormRecognitionResult(bool? successful = default(bool?), List<FieldResult> fieldValueExtractionResult = default(List<FieldResult>))
+        /// <param name="tableValueExtractionResults">Result of form table OCR data extraction.</param>
+        public FormRecognitionResult(bool? successful = default(bool?), List<FieldResult> fieldValueExtractionResult = default(List<FieldResult>), List<TableResult> tableValueExtractionResults = default(List<TableResult>))
         {
             this.Successful = successful;
             this.FieldValueExtractionResult = fieldValueExtractionResult;
+            this.TableValueExtractionResults = tableValueExtractionResults;
         }
         
         /// <summary>
@@ -56,6 +58,13 @@ namespace Cloudmersive.APIClient.NET.OCR.Model
         public List<FieldResult> FieldValueExtractionResult { get; set; }
 
         /// <summary>
+        /// Result of form table OCR data extraction
+        /// </summary>
+        /// <value>Result of form table OCR data extraction</value>
+        [DataMember(Name="TableValueExtractionResults", EmitDefaultValue=false)]
+        public List<TableResult> TableValueExtractionResults { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -65,6 +74,7 @@ namespace Cloudmersive.APIClient.NET.OCR.Model
             sb.Append("class FormRecognitionResult {\n");
             sb.Append("  Successful: ").Append(Successful).Append("\n");
             sb.Append("  FieldValueExtractionResult: ").Append(FieldValueExtractionResult).Append("\n");
+            sb.Append("  TableValueExtractionResults: ").Append(TableValueExtractionResults).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -108,6 +118,11 @@ namespace Cloudmersive.APIClient.NET.OCR.Model
                     this.FieldValueExtractionResult == input.FieldValueExtractionResult ||
                     this.FieldValueExtractionResult != null &&
                     this.FieldValueExtractionResult.SequenceEqual(input.FieldValueExtractionResult)
+                ) && 
+                (
+                    this.TableValueExtractionResults == input.TableValueExtractionResults ||
+                    this.TableValueExtractionResults != null &&
+                    this.TableValueExtractionResults.SequenceEqual(input.TableValueExtractionResults)
                 );
         }
 
@@ -124,6 +139,8 @@ namespace Cloudmersive.APIClient.NET.OCR.Model
                     hashCode = hashCode * 59 + this.Successful.GetHashCode();
                 if (this.FieldValueExtractionResult != null)
                     hashCode = hashCode * 59 + this.FieldValueExtractionResult.GetHashCode();
+                if (this.TableValueExtractionResults != null)
+                    hashCode = hashCode * 59 + this.TableValueExtractionResults.GetHashCode();
                 return hashCode;
             }
         }

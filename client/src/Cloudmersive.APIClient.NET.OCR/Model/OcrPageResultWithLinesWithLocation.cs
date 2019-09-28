@@ -33,28 +33,29 @@ namespace Cloudmersive.APIClient.NET.OCR.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OcrPageResultWithLinesWithLocation" /> class.
         /// </summary>
-        /// <param name="successful">successful.</param>
         /// <param name="pageNumber">Page number of the page that was OCR-ed, starting with 1 for the first page in the PDF file.</param>
+        /// <param name="successful">True if successful, false otherwise.</param>
         /// <param name="lines">Word elements in the image.</param>
-        public OcrPageResultWithLinesWithLocation(bool? successful = default(bool?), int? pageNumber = default(int?), List<OcrLineElement> lines = default(List<OcrLineElement>))
+        public OcrPageResultWithLinesWithLocation(int? pageNumber = default(int?), bool? successful = default(bool?), List<OcrLineElement> lines = default(List<OcrLineElement>))
         {
-            this.Successful = successful;
             this.PageNumber = pageNumber;
+            this.Successful = successful;
             this.Lines = lines;
         }
         
-        /// <summary>
-        /// Gets or Sets Successful
-        /// </summary>
-        [DataMember(Name="Successful", EmitDefaultValue=false)]
-        public bool? Successful { get; set; }
-
         /// <summary>
         /// Page number of the page that was OCR-ed, starting with 1 for the first page in the PDF file
         /// </summary>
         /// <value>Page number of the page that was OCR-ed, starting with 1 for the first page in the PDF file</value>
         [DataMember(Name="PageNumber", EmitDefaultValue=false)]
         public int? PageNumber { get; set; }
+
+        /// <summary>
+        /// True if successful, false otherwise
+        /// </summary>
+        /// <value>True if successful, false otherwise</value>
+        [DataMember(Name="Successful", EmitDefaultValue=false)]
+        public bool? Successful { get; set; }
 
         /// <summary>
         /// Word elements in the image
@@ -71,8 +72,8 @@ namespace Cloudmersive.APIClient.NET.OCR.Model
         {
             var sb = new StringBuilder();
             sb.Append("class OcrPageResultWithLinesWithLocation {\n");
-            sb.Append("  Successful: ").Append(Successful).Append("\n");
             sb.Append("  PageNumber: ").Append(PageNumber).Append("\n");
+            sb.Append("  Successful: ").Append(Successful).Append("\n");
             sb.Append("  Lines: ").Append(Lines).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -109,14 +110,14 @@ namespace Cloudmersive.APIClient.NET.OCR.Model
 
             return 
                 (
-                    this.Successful == input.Successful ||
-                    (this.Successful != null &&
-                    this.Successful.Equals(input.Successful))
-                ) && 
-                (
                     this.PageNumber == input.PageNumber ||
                     (this.PageNumber != null &&
                     this.PageNumber.Equals(input.PageNumber))
+                ) && 
+                (
+                    this.Successful == input.Successful ||
+                    (this.Successful != null &&
+                    this.Successful.Equals(input.Successful))
                 ) && 
                 (
                     this.Lines == input.Lines ||
@@ -134,10 +135,10 @@ namespace Cloudmersive.APIClient.NET.OCR.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Successful != null)
-                    hashCode = hashCode * 59 + this.Successful.GetHashCode();
                 if (this.PageNumber != null)
                     hashCode = hashCode * 59 + this.PageNumber.GetHashCode();
+                if (this.Successful != null)
+                    hashCode = hashCode * 59 + this.Successful.GetHashCode();
                 if (this.Lines != null)
                     hashCode = hashCode * 59 + this.Lines.GetHashCode();
                 return hashCode;

@@ -5,7 +5,7 @@ The powerful Optical Character Recognition (OCR) APIs let you convert scanned im
 This C# SDK is for the [Cloudmersive OCR API](https://www.cloudmersive.com/ocr-api):
 
 - API version: v1
-- SDK version: 2.0.9
+- SDK version: 2.1.0
 - Build package: io.swagger.codegen.languages.CSharpClientCodegen
 
 <a name="frameworks-supported"></a>
@@ -130,6 +130,8 @@ Class | Method | HTTP request | Description
  - [Model.FormDefinitionTemplate](docs/FormDefinitionTemplate.md)
  - [Model.FormFieldDefinition](docs/FormFieldDefinition.md)
  - [Model.FormRecognitionResult](docs/FormRecognitionResult.md)
+ - [Model.FormTableColumnDefinition](docs/FormTableColumnDefinition.md)
+ - [Model.FormTableDefinition](docs/FormTableDefinition.md)
  - [Model.GetPageAngleResult](docs/GetPageAngleResult.md)
  - [Model.ImageToLinesWithLocationResult](docs/ImageToLinesWithLocationResult.md)
  - [Model.ImageToTextResponse](docs/ImageToTextResponse.md)
@@ -144,8 +146,12 @@ Class | Method | HTTP request | Description
  - [Model.PdfToTextResponse](docs/PdfToTextResponse.md)
  - [Model.PdfToWordsWithLocationResult](docs/PdfToWordsWithLocationResult.md)
  - [Model.PhotoToWordsWithLocationResult](docs/PhotoToWordsWithLocationResult.md)
+ - [Model.Point](docs/Point.md)
  - [Model.ReceiptLineItem](docs/ReceiptLineItem.md)
  - [Model.ReceiptRecognitionResult](docs/ReceiptRecognitionResult.md)
+ - [Model.TableCellResult](docs/TableCellResult.md)
+ - [Model.TableResult](docs/TableResult.md)
+ - [Model.TableRowResult](docs/TableRowResult.md)
 
 
 <a name="documentation-for-authorization"></a>
