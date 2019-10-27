@@ -123,6 +123,14 @@ namespace Cloudmersive.APIClient.NET.OCR.Test
             // TODO unit test for the property 'ReceiptItems'
         }
         /// <summary>
+        /// Test the property 'ReceiptSubTotal'
+        /// </summary>
+        [Test]
+        public void ReceiptSubTotalTest()
+        {
+            // TODO unit test for the property 'ReceiptSubTotal'
+        }
+        /// <summary>
         /// Test the property 'ReceiptTotal'
         /// </summary>
         [Test]

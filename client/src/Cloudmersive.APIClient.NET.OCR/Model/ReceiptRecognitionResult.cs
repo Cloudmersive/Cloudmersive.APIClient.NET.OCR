@@ -40,8 +40,9 @@ namespace Cloudmersive.APIClient.NET.OCR.Model
         /// <param name="addressString">The address of the business printed on the receipt (if included on the receipt).</param>
         /// <param name="phoneNumber">The phone number printed on the receipt (if included on the receipt).</param>
         /// <param name="receiptItems">The individual line items comprising the order; does not include total (see ReceiptTotal).</param>
+        /// <param name="receiptSubTotal">Optional; if available, the monetary value of the receipt subtotal - typically not including specialized line items such as Tax. If this value is not available, it will be 0..</param>
         /// <param name="receiptTotal">The total monetary value of the receipt (if included on the receipt).</param>
-        public ReceiptRecognitionResult(bool? successful = default(bool?), DateTime? timestamp = default(DateTime?), string businessName = default(string), string businessWebsite = default(string), string addressString = default(string), string phoneNumber = default(string), List<ReceiptLineItem> receiptItems = default(List<ReceiptLineItem>), double? receiptTotal = default(double?))
+        public ReceiptRecognitionResult(bool? successful = default(bool?), DateTime? timestamp = default(DateTime?), string businessName = default(string), string businessWebsite = default(string), string addressString = default(string), string phoneNumber = default(string), List<ReceiptLineItem> receiptItems = default(List<ReceiptLineItem>), double? receiptSubTotal = default(double?), double? receiptTotal = default(double?))
         {
             this.Successful = successful;
             this.Timestamp = timestamp;
@@ -50,6 +51,7 @@ namespace Cloudmersive.APIClient.NET.OCR.Model
             this.AddressString = addressString;
             this.PhoneNumber = phoneNumber;
             this.ReceiptItems = receiptItems;
+            this.ReceiptSubTotal = receiptSubTotal;
             this.ReceiptTotal = receiptTotal;
         }
         
@@ -103,6 +105,13 @@ namespace Cloudmersive.APIClient.NET.OCR.Model
         public List<ReceiptLineItem> ReceiptItems { get; set; }
 
         /// <summary>
+        /// Optional; if available, the monetary value of the receipt subtotal - typically not including specialized line items such as Tax. If this value is not available, it will be 0.
+        /// </summary>
+        /// <value>Optional; if available, the monetary value of the receipt subtotal - typically not including specialized line items such as Tax. If this value is not available, it will be 0.</value>
+        [DataMember(Name="ReceiptSubTotal", EmitDefaultValue=false)]
+        public double? ReceiptSubTotal { get; set; }
+
+        /// <summary>
         /// The total monetary value of the receipt (if included on the receipt)
         /// </summary>
         /// <value>The total monetary value of the receipt (if included on the receipt)</value>
@@ -124,6 +133,7 @@ namespace Cloudmersive.APIClient.NET.OCR.Model
             sb.Append("  AddressString: ").Append(AddressString).Append("\n");
             sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
             sb.Append("  ReceiptItems: ").Append(ReceiptItems).Append("\n");
+            sb.Append("  ReceiptSubTotal: ").Append(ReceiptSubTotal).Append("\n");
             sb.Append("  ReceiptTotal: ").Append(ReceiptTotal).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -195,6 +205,11 @@ namespace Cloudmersive.APIClient.NET.OCR.Model
                     this.ReceiptItems.SequenceEqual(input.ReceiptItems)
                 ) && 
                 (
+                    this.ReceiptSubTotal == input.ReceiptSubTotal ||
+                    (this.ReceiptSubTotal != null &&
+                    this.ReceiptSubTotal.Equals(input.ReceiptSubTotal))
+                ) && 
+                (
                     this.ReceiptTotal == input.ReceiptTotal ||
                     (this.ReceiptTotal != null &&
                     this.ReceiptTotal.Equals(input.ReceiptTotal))
@@ -224,6 +239,8 @@ namespace Cloudmersive.APIClient.NET.OCR.Model
                     hashCode = hashCode * 59 + this.PhoneNumber.GetHashCode();
                 if (this.ReceiptItems != null)
                     hashCode = hashCode * 59 + this.ReceiptItems.GetHashCode();
+                if (this.ReceiptSubTotal != null)
+                    hashCode = hashCode * 59 + this.ReceiptSubTotal.GetHashCode();
                 if (this.ReceiptTotal != null)
                     hashCode = hashCode * 59 + this.ReceiptTotal.GetHashCode();
                 return hashCode;
