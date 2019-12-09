@@ -33,9 +33,10 @@ namespace Cloudmersive.APIClient.NET.OCR.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FormFieldDefinition" /> class.
         /// </summary>
-        /// <param name="fieldID">The identifier of the field; use this to identify which field is being referenced.</param>
+        /// <param name="fieldID">The identifier of the field; use this to identify which field is being referenced.  Set to SkipField if you do not wish to return the value of this field in the result..</param>
         /// <param name="leftAnchor">Optional - the left-hand anchor of the field.</param>
         /// <param name="topAnchor">Optional - the top anchor of the field.</param>
+        /// <param name="bottomAnchor">Optional - the bottom anchor of the field.</param>
         /// <param name="anchorMode">Optional - the matching mode for the anchor.  Possible values are Complete (requires the entire anchor to match) and Partial (allows only part of the anchor to match) and Horizontal (anchor must be laid out horizontally).  Default is Partial..</param>
         /// <param name="dataType">The data type of the field; possible values are INTEGER (Integer value), STRING (Arbitrary string value, spaces are permitted), DATE (Date in a structured format), DECIMAL (Decimal number), ALPHANUMERIC (Continuous alphanumeric string with no spaces), STRINGNOWHITESPACE (A string that contains no whitespace characters), SERIALNUMBER (A serial-number style string that contains letters and numbers, and certain symbols; must contain at least one number), ALPHAONLY (Alphabet characters only, no numbers or symbols or whitespace).</param>
         /// <param name="targetDigitCount">Optional - the target number of digits in the field; useful for fixed-length fields.</param>
@@ -48,11 +49,12 @@ namespace Cloudmersive.APIClient.NET.OCR.Model
         /// <param name="targetFieldHorizontalAdjustment">Optional - horizontal adjestment in relative width of the field.</param>
         /// <param name="targetFieldVerticalAdjustment">Optional - vertical adjestment in relative height of the field.</param>
         /// <param name="ignore">Optional - Ignore any result items that contain a partial or complete match with these text strings.</param>
-        public FormFieldDefinition(string fieldID = default(string), string leftAnchor = default(string), string topAnchor = default(string), string anchorMode = default(string), string dataType = default(string), int? targetDigitCount = default(int?), int? minimumCharacterCount = default(int?), bool? allowNumericDigits = default(bool?), string verticalAlignmentType = default(string), string horizontalAlignmentType = default(string), double? targetFieldWidthRelative = default(double?), double? targetFieldHeightRelative = default(double?), double? targetFieldHorizontalAdjustment = default(double?), double? targetFieldVerticalAdjustment = default(double?), List<string> ignore = default(List<string>))
+        public FormFieldDefinition(string fieldID = default(string), string leftAnchor = default(string), string topAnchor = default(string), string bottomAnchor = default(string), string anchorMode = default(string), string dataType = default(string), int? targetDigitCount = default(int?), int? minimumCharacterCount = default(int?), bool? allowNumericDigits = default(bool?), string verticalAlignmentType = default(string), string horizontalAlignmentType = default(string), double? targetFieldWidthRelative = default(double?), double? targetFieldHeightRelative = default(double?), double? targetFieldHorizontalAdjustment = default(double?), double? targetFieldVerticalAdjustment = default(double?), List<string> ignore = default(List<string>))
         {
             this.FieldID = fieldID;
             this.LeftAnchor = leftAnchor;
             this.TopAnchor = topAnchor;
+            this.BottomAnchor = bottomAnchor;
             this.AnchorMode = anchorMode;
             this.DataType = dataType;
             this.TargetDigitCount = targetDigitCount;
@@ -68,9 +70,9 @@ namespace Cloudmersive.APIClient.NET.OCR.Model
         }
         
         /// <summary>
-        /// The identifier of the field; use this to identify which field is being referenced
+        /// The identifier of the field; use this to identify which field is being referenced.  Set to SkipField if you do not wish to return the value of this field in the result.
         /// </summary>
-        /// <value>The identifier of the field; use this to identify which field is being referenced</value>
+        /// <value>The identifier of the field; use this to identify which field is being referenced.  Set to SkipField if you do not wish to return the value of this field in the result.</value>
         [DataMember(Name="FieldID", EmitDefaultValue=false)]
         public string FieldID { get; set; }
 
@@ -87,6 +89,13 @@ namespace Cloudmersive.APIClient.NET.OCR.Model
         /// <value>Optional - the top anchor of the field</value>
         [DataMember(Name="TopAnchor", EmitDefaultValue=false)]
         public string TopAnchor { get; set; }
+
+        /// <summary>
+        /// Optional - the bottom anchor of the field
+        /// </summary>
+        /// <value>Optional - the bottom anchor of the field</value>
+        [DataMember(Name="BottomAnchor", EmitDefaultValue=false)]
+        public string BottomAnchor { get; set; }
 
         /// <summary>
         /// Optional - the matching mode for the anchor.  Possible values are Complete (requires the entire anchor to match) and Partial (allows only part of the anchor to match) and Horizontal (anchor must be laid out horizontally).  Default is Partial.
@@ -183,6 +192,7 @@ namespace Cloudmersive.APIClient.NET.OCR.Model
             sb.Append("  FieldID: ").Append(FieldID).Append("\n");
             sb.Append("  LeftAnchor: ").Append(LeftAnchor).Append("\n");
             sb.Append("  TopAnchor: ").Append(TopAnchor).Append("\n");
+            sb.Append("  BottomAnchor: ").Append(BottomAnchor).Append("\n");
             sb.Append("  AnchorMode: ").Append(AnchorMode).Append("\n");
             sb.Append("  DataType: ").Append(DataType).Append("\n");
             sb.Append("  TargetDigitCount: ").Append(TargetDigitCount).Append("\n");
@@ -243,6 +253,11 @@ namespace Cloudmersive.APIClient.NET.OCR.Model
                     this.TopAnchor == input.TopAnchor ||
                     (this.TopAnchor != null &&
                     this.TopAnchor.Equals(input.TopAnchor))
+                ) && 
+                (
+                    this.BottomAnchor == input.BottomAnchor ||
+                    (this.BottomAnchor != null &&
+                    this.BottomAnchor.Equals(input.BottomAnchor))
                 ) && 
                 (
                     this.AnchorMode == input.AnchorMode ||
@@ -321,6 +336,8 @@ namespace Cloudmersive.APIClient.NET.OCR.Model
                     hashCode = hashCode * 59 + this.LeftAnchor.GetHashCode();
                 if (this.TopAnchor != null)
                     hashCode = hashCode * 59 + this.TopAnchor.GetHashCode();
+                if (this.BottomAnchor != null)
+                    hashCode = hashCode * 59 + this.BottomAnchor.GetHashCode();
                 if (this.AnchorMode != null)
                     hashCode = hashCode * 59 + this.AnchorMode.GetHashCode();
                 if (this.DataType != null)
