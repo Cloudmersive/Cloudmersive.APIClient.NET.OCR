@@ -65,6 +65,18 @@ namespace Cloudmersive.APIClient.NET.OCR.Test
 
         
         /// <summary>
+        /// Test PdfOcrGetAsyncJobStatus
+        /// </summary>
+        [Test]
+        public void PdfOcrGetAsyncJobStatusTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string asyncJobID = null;
+            //var response = instance.PdfOcrGetAsyncJobStatus(asyncJobID);
+            //Assert.IsInstanceOf<PdfToTextResponse> (response, "response is PdfToTextResponse");
+        }
+        
+        /// <summary>
         /// Test PdfOcrPdfToLinesWithLocation
         /// </summary>
         [Test]

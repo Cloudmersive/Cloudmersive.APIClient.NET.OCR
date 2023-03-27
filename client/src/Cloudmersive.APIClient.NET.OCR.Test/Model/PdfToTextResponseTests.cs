@@ -82,6 +82,22 @@ namespace Cloudmersive.APIClient.NET.OCR.Test
         {
             // TODO unit test for the property 'OcrPages'
         }
+        /// <summary>
+        /// Test the property 'AsyncJobID'
+        /// </summary>
+        [Test]
+        public void AsyncJobIDTest()
+        {
+            // TODO unit test for the property 'AsyncJobID'
+        }
+        /// <summary>
+        /// Test the property 'AsyncJobStatus'
+        /// </summary>
+        [Test]
+        public void AsyncJobStatusTest()
+        {
+            // TODO unit test for the property 'AsyncJobStatus'
+        }
 
     }
 
